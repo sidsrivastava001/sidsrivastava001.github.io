@@ -1,0 +1,2 @@
+Structure: 1   Energy = 0.0 ± 0.0
+Structure: 2   Energy = 0.4 ± 0.4

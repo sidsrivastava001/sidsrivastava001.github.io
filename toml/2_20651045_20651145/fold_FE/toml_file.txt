@@ -1,0 +1,2 @@
+Structure: 1   Energy = -64.4 ± 1.6
+Structure: 2   Energy = -60.6 ± 1.7

@@ -1,0 +1,11 @@
+Structure: 1   Energy = -41.4 ± 1.9
+Structure: 2   Energy = -40.8 ± 1.8
+Structure: 3   Energy = -40.0 ± 1.5
+Structure: 4   Energy = -37.6 ± 1.2
+Structure: 5   Energy = -39.4 ± 1.6
+Structure: 6   Energy = -39.1 ± 1.2
+Structure: 7   Energy = -39.1 ± 2.2
+Structure: 8   Energy = -38.6 ± 1.9
+Structure: 9   Energy = -36.0 ± 1.4
+Structure: 10   Energy = -37.8 ± 2.0
+Structure: 11   Energy = -37.6 ± 1.9

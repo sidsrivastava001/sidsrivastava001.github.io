@@ -1,0 +1,6 @@
+Structure 1: 0.833
+Structure 2: 0.625
+Structure 3: 0.476
+Structure 4: 0.417
+Structure 5: 0.417
+Structure 6: 0.381
