@@ -133,8 +133,8 @@
         <button id="reloadCsv" type="button">Reload all_structures.csv</button>
       </div>
       <div class="row">
-        <label for="locationSearch">Search Location:</label>
-        <input id="locationSearch" type="search" placeholder="Type to filter Location...">
+        <label for="locationSearch">Search Location or Gene:</label>
+        <input id="locationSearch" type="search" placeholder="Type to filter Location or Neighboring Gene...">
       </div>
       <div id="status" class="hint">Loading all_structures.csv...</div>
       <div class="hint">Click any header to sort ascending/descending.</div>
@@ -189,7 +189,8 @@
     function applySearchAndRender() {
       const query = searchInput.value.trim().toLowerCase();
       filteredRows = allRows.filter(row =>
-        row["Location"].toLowerCase().includes(query)
+        row["Location"].toLowerCase().includes(query) ||
+        row["Neighboring Gene"].toLowerCase().includes(query)
       );
 
       if (sortState.column) {
