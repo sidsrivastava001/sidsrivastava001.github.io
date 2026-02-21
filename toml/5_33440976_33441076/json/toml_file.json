@@ -1,0 +1,22 @@
+[
+  {
+    "category": "Annotation",
+    "level": "info",
+    "message": "Based on canonical annotations, the following gene is in your area of interest: TARS1(+)"
+  },
+  {
+    "category": "Length",
+    "level": "info",
+    "message": "Length of region: 101 nt."
+  },
+  {
+    "category": "Coverage",
+    "level": "info",
+    "message": "100.0% of the region's A/C bases included in the filtered DMS dataset. Ideally, this number should be as high as possible for an experimenally-accurate prediction, and over 70% is recommended."
+  },
+  {
+    "category": "Structures",
+    "level": "info",
+    "message": "This region has 9 maximum predicted structures. 5 is the maximum structures visible on this site. For up to 20 predictions per region, download and run the code locally."
+  }
+]

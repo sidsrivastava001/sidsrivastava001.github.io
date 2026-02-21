@@ -1,0 +1,32 @@
+[
+  {
+    "category": "Annotation",
+    "level": "info",
+    "message": "Based on canonical annotations, the following gene is in your area of interest: HOXB-AS4(+)"
+  },
+  {
+    "category": "Structures",
+    "level": "warn",
+    "message": "NO SIGNAL COVERAGE IN THIS AREA. STRUCTURE PREDICTION WILL BE BASED ON SEQUENCE ALONE."
+  },
+  {
+    "category": "Structures",
+    "level": "warn",
+    "message": "Too few A/C datapoints for AUC calculation. Recommended >= 10. Region contains only 0."
+  },
+  {
+    "category": "Length",
+    "level": "info",
+    "message": "Length of region: 101 nt."
+  },
+  {
+    "category": "Coverage",
+    "level": "warn",
+    "message": "0.0% of the region's A/C bases included in the filtered DMS dataset. This is lower than the recommended 70%. While structure prediction is still possible even without any coverage, the structures will be based on the sequence alone, rather than based on experimental constraints."
+  },
+  {
+    "category": "Structures",
+    "level": "info",
+    "message": "This region has 2 maximum predicted structures. 5 is the maximum structures visible on this site. For up to 20 predictions per region, download and run the code locally."
+  }
+]

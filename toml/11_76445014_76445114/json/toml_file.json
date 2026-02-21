@@ -1,0 +1,22 @@
+[
+  {
+    "category": "Annotation",
+    "level": "warn",
+    "message": "Based on canonical annotations, there are not any genes in your area of interest."
+  },
+  {
+    "category": "Length",
+    "level": "info",
+    "message": "Length of region: 101 nt."
+  },
+  {
+    "category": "Coverage",
+    "level": "warn",
+    "message": "27.3% of the region's A/C bases included in the filtered DMS dataset. This is lower than the recommended 70%. While structure prediction is still possible even without any coverage, the structures will be based on the sequence alone, rather than based on experimental constraints."
+  },
+  {
+    "category": "Structures",
+    "level": "info",
+    "message": "This region has 6 maximum predicted structures. 5 is the maximum structures visible on this site. For up to 20 predictions per region, download and run the code locally."
+  }
+]
