@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Structure Viewer</title>
+  <title>Bulge Locations</title>
   <style>
     :root {
       --bg: #f7f8fb;
@@ -78,7 +78,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 1000px;
+      min-width: 800px;
       background: #fff;
     }
 
@@ -127,19 +127,19 @@
 </head>
 <body>
   <main class="wrap">
-    <h1>Structure Predictions</h1>
+    <h1>Bulge Locations</h1>
     <div class="controls">
       <div class="row">
-        <a href="bulges.html">View Bulge Locations</a>
+        <a href="index.html">Back to Structure Predictions</a>
       </div>
       <div class="row">
-        <button id="reloadCsv" type="button">Reload all_structures.csv</button>
+        <button id="reloadCsv" type="button">Reload all_bulges.csv</button>
       </div>
       <div class="row">
-        <label for="locationSearch">Search Location or Gene:</label>
-        <input id="locationSearch" type="search" placeholder="Type to filter Location or Neighboring Gene...">
+        <label for="locationSearch">Search Promoter or Bulge Location:</label>
+        <input id="locationSearch" type="search" placeholder="Type to filter Promoter Location or Bulge Location...">
       </div>
-      <div id="status" class="hint">Loading all_structures.csv...</div>
+      <div id="status" class="hint">Loading all_bulges.csv...</div>
       <div class="hint">Click any header to sort ascending/descending.</div>
     </div>
 
@@ -147,7 +147,7 @@
       <table id="dataTable">
         <thead></thead>
         <tbody>
-          <tr><td class="empty">Loading all_structures.csv...</td></tr>
+          <tr><td class="empty">Loading all_bulges.csv...</td></tr>
         </tbody>
       </table>
     </div>
@@ -155,19 +155,12 @@
 
   <script>
     const EXPECTED_HEADERS = [
-      "Location",
-      "Chrom",
-      "Start",
-      "End",
-      "Bulge Counts",
-      "Free energy",
-      "Average DMS signal",
-      "% Nucleotides with DMS signal",
-      "Structure SVG",
-      "Neighboring Gene"
+      "Promoter Location",
+      "Bulge Location",
+      "DMS Signal"
     ];
 
-    const CSV_PATH = "all_structures.csv";
+    const CSV_PATH = "all_bulges.csv";
     const reloadBtn = document.getElementById("reloadCsv");
     const status = document.getElementById("status");
     const searchInput = document.getElementById("locationSearch");
@@ -192,8 +185,8 @@
     function applySearchAndRender() {
       const query = searchInput.value.trim().toLowerCase();
       filteredRows = allRows.filter(row =>
-        row["Location"].toLowerCase().includes(query) ||
-        row["Neighboring Gene"].toLowerCase().includes(query)
+        row["Promoter Location"].toLowerCase().includes(query) ||
+        row["Bulge Location"].toLowerCase().includes(query)
       );
 
       if (sortState.column) {
@@ -273,20 +266,7 @@
         const tr = document.createElement("tr");
         EXPECTED_HEADERS.forEach((header) => {
           const td = document.createElement("td");
-
-          if (header === "Structure SVG") {
-            const path = row[header];
-            if (path) {
-              const a = document.createElement("a");
-              a.href = path;
-              a.textContent = path;
-              td.appendChild(a);
-            } else {
-              td.textContent = "";
-            }
-          } else {
-            td.textContent = row[header];
-          }
+          td.textContent = row[header];
           tr.appendChild(td);
         });
         tbody.appendChild(tr);
