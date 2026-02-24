@@ -164,7 +164,8 @@
       "Average DMS signal",
       "% Nucleotides with DMS signal",
       "Structure SVG",
-      "Neighboring Gene"
+      "Neighboring Gene",
+      "CT Path"
     ];
 
     const CSV_PATH = "all_structures.csv";
@@ -217,12 +218,25 @@
           throw new Error("CSV file is empty");
         }
 
-        const headers = parsed[0].map(h => h.trim());
+        let headers = parsed[0].map(h => h.trim());
+        let dataRows = parsed.slice(1);
+
+        // Handles a malformed first line where "CT Path" is merged with the first row's Location.
+        if (!arraysEqual(headers, EXPECTED_HEADERS) && headers.length >= 11 && headers[10].startsWith("CT Path")) {
+          const mergedFirstLocation = headers[10].slice("CT Path".length).trim();
+          const reconstructedFirstRow = [
+            mergedFirstLocation,
+            ...headers.slice(11)
+          ];
+          headers = [...headers.slice(0, 10), "CT Path"];
+          dataRows = [reconstructedFirstRow, ...dataRows];
+        }
+
         if (!arraysEqual(headers, EXPECTED_HEADERS)) {
           throw new Error("CSV headers do not match expected headers exactly");
         }
 
-        allRows = parsed.slice(1).map(cells => {
+        allRows = dataRows.map(cells => {
           const row = {};
           EXPECTED_HEADERS.forEach((h, i) => {
             row[h] = (cells[i] ?? "").trim();
@@ -274,7 +288,7 @@
         EXPECTED_HEADERS.forEach((header) => {
           const td = document.createElement("td");
 
-          if (header === "Structure SVG") {
+          if (header === "Structure SVG" || header === "CT Path") {
             const path = row[header];
             if (path) {
               const a = document.createElement("a");
